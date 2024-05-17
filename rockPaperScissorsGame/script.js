@@ -5,4 +5,18 @@ function getRandomComputerResult() {
     return options[randomIndex];
 }
 
-console.log(getRandomComputerResult());
+function hasPlayerWonTheRound(player, computer) {
+    let playerWins;
+
+    if (player === "Rock" && computer === "Scissors") {
+        playerWins = true;
+    } else if (player === "Paper" && computer === "Rock") {
+        playerWins = true;
+    } else if (player === "Scissors" && computer === "Paper") {
+        playerWins = true;
+    } else {
+        playerWins = false;
+    }
+
+    return playerWins;
+}
