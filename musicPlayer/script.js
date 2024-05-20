@@ -87,6 +87,19 @@ let userData = {
 };
 
 const playSong = (id) => {
+    const song = userData?.songs.find((song) => song.id === id);
+    audio.src = song.src;
+    audio.title = song.title;
+
+    if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
+        audio.currentTime = 0;
+    } else {
+        audio.currentTime = userData?.songCurrentTime;
+    }
+
+    userData.currentSong = song;
+    playButton.classList.add("playing");
+    audio.play();
 };
 
 const renderSongs = (array) => {
@@ -126,3 +139,10 @@ const sortSongs = () => {
 };
 
 renderSongs(sortSongs());
+playButton.addEventListener("click", () => {
+    if (userData?.currentSong === null) {
+        playSong(userData?.songs[0].id);
+    } else {
+        playSong(userData?.currentSong.id);
+    }
+});
