@@ -128,6 +128,10 @@ const renderSongs = (array) => {
     playlistSongs.innerHTML = songsHTML;
 };
 
+const getCurrentSongIndex = () => {
+    
+};
+
 const sortSongs = () => {
     userData?.songs.sort((a,b) => {
         if (a.title < b.title) {
@@ -145,6 +149,7 @@ const sortSongs = () => {
 };
 
 renderSongs(sortSongs());
+
 playButton.addEventListener("click", () => {
     if (userData?.currentSong === null) {
         playSong(userData?.songs[0].id);
@@ -152,3 +157,5 @@ playButton.addEventListener("click", () => {
         playSong(userData?.currentSong.id);
     }
 });
+
+pauseButton.addEventListener("click", pauseSong);
