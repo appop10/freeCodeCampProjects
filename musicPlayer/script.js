@@ -101,6 +101,7 @@ const playSong = (id) => {
     playButton.classList.add("playing");
     highlightCurrentSong();
     setPlayerDisplay();
+    setPlayButtonAccessibleText();
     audio.play();
 };
 
@@ -128,6 +129,16 @@ const playPreviousSong = () => {
         const previousSong = userData?.songs[currentSongIndex - 1];
         playSong(previousSong.id);
     }
+};
+
+const shuffle = () => {
+    userData?.songs.sort(() => Math.random() - 0.5);
+    userData.currentSong = null;
+    userData.songCurrentTime = 0;
+    renderSongs(userData?.songs);
+    pauseSong();
+    setPlayerDisplay();
+    setPlayButtonAccessibleText();
 };
 
 const setPlayerDisplay = () => {
