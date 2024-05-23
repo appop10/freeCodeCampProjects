@@ -21,7 +21,16 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function checkPalindrome(input) {
-    const reversedStr = input.split('').reverse().join('');
+    const regex = /[\W_]/g;
+    const formattedInput = input
+    .replace(regex, '')
+    .toLowerCase();
+    const reversedStr = input
+    .replace(regex, '')
+    .toLowerCase()
+    .split('')
+    .reverse()
+    .join('');
 
-    return input === reversedStr ? true : false;
+    return formattedInput === reversedStr ? true : false;
 }
