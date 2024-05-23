@@ -9,15 +9,17 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <main>
+    <main class="container">
         <h1 class="title">Is it a Palindrome?</h1>
 
         <div class="palindrome-div">
             <label for="text-input">Enter text to check for a palindrome:</label>
-            <input type="text" id="text-input"/>
-            <button id="check-btn">Check</button>
+            <input type="text" id="text-input" class="palindrome-input"/>
+            <button id="check-btn" class="palindrome-btn">Check</button>
 
-            <div id="result"></div>
+            <div id="result">
+                <p class="result-text"></p>
+            </div>
         </div>
     </main>
 </body>
