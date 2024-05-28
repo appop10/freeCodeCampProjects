@@ -35,7 +35,7 @@ cancelBtn.addEventListener("click", () => {
 
 discardBtn.addEventListener("click", () => {
     confirmCloseDialog.close();
-    taskForm.classList.toggle("hidden");
+    reset();
 });
 
 taskForm.addEventListener("submit", (e) => {
@@ -67,5 +67,5 @@ taskForm.addEventListener("submit", (e) => {
         `;
     });
 
-    taskForm.classList.toggle("hidden");
+    reset();
 });
